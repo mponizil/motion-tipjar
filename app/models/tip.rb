@@ -1,5 +1,5 @@
 class Tip
   include ParseModel::Model
 
-  fields :tipjar, :author, :lat, :lng, :name, :content
+  fields :tipjar, :author, :location, :name, :content
 end

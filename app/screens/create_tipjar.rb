@@ -33,8 +33,10 @@ class CreateTipjar < PM::FormotionScreen
     tipjar = Tipjar.new
     tipjar.name = data[:name]
     tipjar.author = PFUser.currentUser
+    tipjar.location = User.current_user.location
     relation = tipjar.PFObject.relationforKey('users')
     relation.addObject(PFUser.currentUser)
+    puts 'creating tipjar with coords: ', tipjar.location
     tipjar.save
   end
 end

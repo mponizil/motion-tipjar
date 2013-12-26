@@ -16,6 +16,7 @@ Motion::Project::App.setup do |app|
     'CFNetwork',
     'CoreGraphics',
     'CoreLocation',
+    'MapKit',
     'MobileCoreServices',
     'QuartzCore',
     'Security',

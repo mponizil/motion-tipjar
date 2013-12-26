@@ -1,5 +1,5 @@
 class User
   include ParseModel::User
 
-  fields :handle
+  fields :handle, :location
 end

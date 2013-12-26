@@ -6,6 +6,11 @@ class AppDelegate < PM::Delegate
   def on_load(app, options)
     PFUser.enableAutomaticUser
 
+    PFGeoPoint.geoPointForCurrentLocationInBackground(lambda do |geo_point, error|
+      User.current_user.location = geo_point
+      User.current_user.saveInBackground
+    end)
+
     open HomeScreen.new(nav_bar: true)
   end
 
