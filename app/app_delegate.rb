@@ -5,6 +5,7 @@ class AppDelegate < PM::Delegate
 
   def on_load(app, options)
     PFUser.enableAutomaticUser
+    User.current_user.save
 
     PFGeoPoint.geoPointForCurrentLocationInBackground(lambda do |geo_point, error|
       User.current_user.location = geo_point

@@ -10,8 +10,6 @@ class HomeScreen < PM::TableScreen
     updated_time_format: "%l:%M %p"
 
   def on_load
-    @view_setup ||= self.set_up_view
-
     fetch do
       update_table_data
     end
@@ -26,10 +24,6 @@ class HomeScreen < PM::TableScreen
 
   def will_appear
     set_nav_bar_button :right, system_item: :add, action: :create_tipjar
-  end
-
-  def set_up_view
-    true
   end
 
   def fetch(&block)

@@ -7,7 +7,9 @@ Bundler.require
 
 Motion::Project::App.setup do |app|
   # Use `rake config' to see complete project settings.
-  app.name = 'motion-tipjar'
+  app.name = 'Tipjar'
+  app.icons = ['icon.png', 'icon@2x.png']
+  app.prerendered_icon = true
 
   app.libs << '/usr/lib/libz.1.1.3.dylib'
   app.libs << '/usr/lib/libsqlite3.dylib'
