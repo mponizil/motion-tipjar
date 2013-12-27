@@ -47,7 +47,6 @@ class CreateTip < PM::FormotionScreen
     tip.author = PFUser.currentUser
     tip.tipjar = @tipjar.PFObject
     tip.location = User.current_user.location
-    puts 'creating tip with coords: ', tip.location
     tip.save
   end
 end
