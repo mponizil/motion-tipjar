@@ -5,7 +5,7 @@ class AppDelegate < PM::Delegate
     Parse.setApplicationId(PARSE_APPLICATION_ID, clientKey: PARSE_CLIENT_ID)
 
     PFUser.enableAutomaticUser
-    User.current_user.save
+    User.current_user.save if User.current_user.objectId.nil?
 
     PFGeoPoint.geoPointForCurrentLocationInBackground(lambda do |geo_point, error|
       User.current_user.location = geo_point
