@@ -41,12 +41,24 @@ class HomeScreen < PM::TableScreen
           {
             title: tipjar.name,
             action: :view_tipjar,
-            arguments: { tipjar: tipjar }
+            arguments: { tipjar: tipjar },
+            editing_style: :delete
           }
         end
       }]
 
       block.call if block
+    end
+  end
+
+  def on_cell_deleted(cell)
+    tipjar = cell[:arguments][:tipjar]
+    if tipjar.author.objectId == PFUser.currentUser.objectId
+      tipjar.deleteInBackground
+    else
+      relation = tipjar.relationforKey('users')
+      relation.removeObject(PFUser.currentUser)
+      tipjar.saveInBackground
     end
   end
 

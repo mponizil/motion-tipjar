@@ -47,6 +47,8 @@ class CreateTip < PM::FormotionScreen
     tip.author = PFUser.currentUser
     tip.tipjar = @tipjar.PFObject
     tip.location = User.current_user.location
-    tip.save
+    tip.saveInBackgroundWithBlock(lambda do |success, error|
+      close
+    end)
   end
 end

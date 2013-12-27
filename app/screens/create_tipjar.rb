@@ -34,8 +34,10 @@ class CreateTipjar < PM::FormotionScreen
     tipjar.name = data[:name]
     tipjar.author = PFUser.currentUser
     tipjar.location = User.current_user.location
-    relation = tipjar.PFObject.relationforKey('users')
+    relation = tipjar.relationforKey('users')
     relation.addObject(PFUser.currentUser)
-    tipjar.save
+    tipjar.saveInBackgroundWithBlock(lambda do |success, error|
+      close
+    end)
   end
 end
