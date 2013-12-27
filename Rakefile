@@ -11,6 +11,8 @@ Motion::Project::App.setup do |app|
   app.icons = ['icon.png', 'icon@2x.png']
   app.prerendered_icon = true
 
+  app.files << './app/config.rb'
+
   app.libs << '/usr/lib/libz.1.1.3.dylib'
   app.libs << '/usr/lib/libsqlite3.dylib'
   app.frameworks += [
