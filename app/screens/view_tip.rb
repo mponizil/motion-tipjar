@@ -1,6 +1,6 @@
 class ViewTip < PM::Screen
 
-  title 'View Tip'
+  title "View Tip"
 
   def on_create(args={})
     @tip = args[:tip]
@@ -16,7 +16,7 @@ class ViewTip < PM::Screen
   end
 
   def will_appear
-    set_nav_bar_button :back, title: 'Back', style: :plain, action: :back
+    set_nav_bar_button :back, title: "Back", style: :plain, action: :back
 
     # This is a workaround for an iOS 7 issue.
     # Ref: https://github.com/clearsightstudio/ProMotion/issues/348

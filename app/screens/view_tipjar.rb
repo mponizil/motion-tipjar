@@ -24,7 +24,7 @@ class ViewTipjar < PM::TableScreen
   end
 
   def will_appear
-    set_nav_bar_button :back, title: 'Back', style: :plain, action: :back
+    set_nav_bar_button :back, title: "Back", style: :plain, action: :back
     set_nav_bar_button :right, system_item: :add, action: :create_tip
 
     # This is a workaround for an iOS 7 issue.

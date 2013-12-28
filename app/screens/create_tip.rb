@@ -1,5 +1,5 @@
 class CreateTip < PM::FormotionScreen
-  title 'Add a Tip'
+  title "Add a Tip"
 
   def on_create(args={})
     @tipjar = args[:tipjar]
@@ -7,7 +7,7 @@ class CreateTip < PM::FormotionScreen
   end
 
   def will_appear
-    set_nav_bar_button :back, title: 'Cancel', style: :plain, action: :back
+    set_nav_bar_button :back, title: "Cancel", style: :plain, action: :back
 
     # This is a workaround for an iOS 7 issue.
     # Ref: https://github.com/clearsightstudio/ProMotion/issues/348
@@ -17,14 +17,14 @@ class CreateTip < PM::FormotionScreen
   def table_data
     {
       sections: [{
-        title: 'Add a Tip',
+        title: "Add a Tip",
         rows: [{
-          title: 'Name',
+          title: "Name",
           key: :name,
-          placeholder: 'Name of the Tip',
+          placeholder: "Name of the Tip",
           type: :string
         }, {
-          title: 'Content',
+          title: "Content",
           key: :content,
           placeholder: "What's your tip?",
           type: :text,

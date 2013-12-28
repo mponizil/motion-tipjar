@@ -2,7 +2,7 @@ class CreateTipjar < PM::FormotionScreen
   title 'Create Tipjar'
 
   def will_appear
-    set_nav_bar_button :back, title: 'Cancel', style: :plain, action: :back
+    set_nav_bar_button :back, title: "Cancel", style: :plain, action: :back
 
     # This is a workaround for an iOS 7 issue.
     # Ref: https://github.com/clearsightstudio/ProMotion/issues/348
@@ -12,16 +12,16 @@ class CreateTipjar < PM::FormotionScreen
   def table_data
     {
       sections: [{
-        title: 'Create Tipjar',
+        title: "Create Tipjar",
         rows: [{
-          title: 'Name',
+          title: "Name",
           key: :name,
-          placeholder: 'Name of the Tipjar',
+          placeholder: "Name of the Tipjar",
           type: :string
         }]
       }, {
         rows: [{
-          title: 'Create',
+          title: "Create",
           type: :submit
         }]
       }]
