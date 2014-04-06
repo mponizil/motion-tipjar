@@ -2,7 +2,7 @@ class AppDelegate < PM::Delegate
   status_bar true, animation: :none
 
   def on_load(app, options)
-    Parse.setApplicationId(PARSE_APPLICATION_ID, clientKey: PARSE_CLIENT_ID)
+    Parse.setApplicationId(PARSE_APPLICATION_ID, clientKey: PARSE_CLIENT_KEY)
 
     PFUser.enableAutomaticUser
     User.current_user.save if User.current_user.objectId.nil?
