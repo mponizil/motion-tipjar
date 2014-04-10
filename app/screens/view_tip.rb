@@ -12,15 +12,9 @@ class ViewTip < PM::Screen
       background_color: UIColor.whiteColor
     }
 
-    @view_is_set_up ||= self.set_up_view
-  end
-
-  def will_appear
     set_nav_bar_button :back, title: "Back", style: :plain, action: :back
 
-    # This is a workaround for an iOS 7 issue.
-    # Ref: https://github.com/clearsightstudio/ProMotion/issues/348
-    self.navigationController.navigationBar.translucent = false
+    @view_is_set_up ||= self.set_up_view
   end
 
   def set_up_view

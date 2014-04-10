@@ -8,12 +8,6 @@ class MyTipjars < PM::TableScreen
     updated_format: "Last updated at %s",
     updated_time_format: "%l:%M %p"
 
-  def on_load
-    fetch do
-      update_table_data
-    end
-  end
-
   def on_refresh
     fetch do
       end_refreshing
@@ -21,12 +15,14 @@ class MyTipjars < PM::TableScreen
     end
   end
 
-  def will_appear
+  def on_load
     set_nav_bar_button :right, system_item: :add, action: :create_tipjar
+  end
 
-    # This is a workaround for an iOS 7 issue.
-    # Ref: https://github.com/clearsightstudio/ProMotion/issues/348
-    self.navigationController.navigationBar.translucent = false
+  def on_appear
+    fetch do
+      update_table_data
+    end
   end
 
   def fetch(&block)

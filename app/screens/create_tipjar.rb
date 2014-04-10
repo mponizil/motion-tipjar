@@ -1,12 +1,8 @@
 class CreateTipjar < PM::FormotionScreen
   title 'Create Tipjar'
 
-  def will_appear
+  def on_load
     set_nav_bar_button :back, title: "Cancel", style: :plain, action: :back
-
-    # This is a workaround for an iOS 7 issue.
-    # Ref: https://github.com/clearsightstudio/ProMotion/issues/348
-    self.navigationController.navigationBar.translucent = false
   end
 
   def table_data

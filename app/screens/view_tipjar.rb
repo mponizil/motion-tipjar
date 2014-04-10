@@ -13,7 +13,14 @@ class ViewTipjar < PM::TableScreen
   end
 
   def on_load
-    fetch { update_table_data }
+    set_nav_bar_button :back, title: "Back", style: :plain, action: :back
+    set_nav_bar_button :right, system_item: :add, action: :create_tip
+  end
+
+  def on_appear
+    fetch do
+      update_table_data
+    end
   end
 
   def on_refresh
@@ -21,15 +28,6 @@ class ViewTipjar < PM::TableScreen
       end_refreshing
       update_table_data
     end
-  end
-
-  def will_appear
-    set_nav_bar_button :back, title: "Back", style: :plain, action: :back
-    set_nav_bar_button :right, system_item: :add, action: :create_tip
-
-    # This is a workaround for an iOS 7 issue.
-    # Ref: https://github.com/clearsightstudio/ProMotion/issues/348
-    self.navigationController.navigationBar.translucent = false
   end
 
   def table_data
